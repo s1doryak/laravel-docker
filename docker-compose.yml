@@ -1,0 +1,38 @@
+# Images from: https://github.com/s1doryak/laravel-docker
+version: "3.8"
+services:
+  nginx:
+    image: s1doryak/laravel-nginx
+    command: nginx -g "daemon off;"
+    links:
+      - php
+    ports:
+      - "80:80"
+    volumes:
+      - ./logs/nginx:/var/log/nginx
+      - .:/var/www/html
+  php:
+    image: s1doryak/laravel-fpm
+    links:
+      - database
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+  artisan:
+    image: s1doryak/laravel-cli
+    links:
+      - database
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+  database:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: laravel
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+    ports:
+      - "3306:3306"
