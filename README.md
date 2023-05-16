@@ -25,6 +25,12 @@ DB_USERNAME=laravel
 DB_PASSWORD=laravel
 ```
 
+Then check your storage permissions:
+
+```
+chmod -R 0777 storage
+```
+
 ### Artisan
 ```
 docker-compose run artisan
