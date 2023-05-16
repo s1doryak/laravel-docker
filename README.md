@@ -33,7 +33,7 @@ chmod -R 0777 storage
 
 ### Artisan
 ```
-docker-compose run artisan
+docker-compose run artisan migrate
 ```
 
 ## Contributing
