@@ -1,4 +1,3 @@
-# docker/php/Dockerfile
 FROM php:8.1-cli
 
 RUN apt-get update
@@ -13,7 +12,8 @@ RUN sed -i -e "s/short_open_tag = On/short_open_tag = Off/g" /usr/local/etc/php/
 
 RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
+ADD composer.phar /usr/bin/composer
+
 USER 1000
 
-ENTRYPOINT [ "php", "artisan" ]
-
+ENTRYPOINT [ "/usr/bin/composer" ]

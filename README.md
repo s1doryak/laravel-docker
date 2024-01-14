@@ -43,6 +43,7 @@ docker-compose run artisan migrate
 ```
 docker build -t s1doryak/laravel-cli ./cli
 docker build -t s1doryak/laravel-fpm ./fpm
+docker build -t s1doryak/laravel-composer ./composer
 docker build -t s1doryak/laravel-nginx ./nginx
 ```
 
@@ -57,5 +58,6 @@ docker login
 ```
 docker push s1doryak/laravel-cli
 docker push s1doryak/laravel-fpm
+docker push s1doryak/laravel-composer
 docker push s1doryak/laravel-nginx
 ```

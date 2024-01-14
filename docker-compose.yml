@@ -27,6 +27,14 @@ services:
     volumes:
       - .:/var/www/html
     working_dir: /var/www/html
+  composer:
+    image: s1doryak/laravel-composer
+    links:
+      - database
+    command: install
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
   database:
     image: mysql:8
     environment:
