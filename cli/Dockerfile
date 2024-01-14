@@ -13,7 +13,7 @@ RUN sed -i -e "s/short_open_tag = On/short_open_tag = Off/g" /usr/local/etc/php/
 
 RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
-USER 1000
+USER 1000:1000
 
 ENTRYPOINT [ "php", "artisan" ]
 

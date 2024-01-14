@@ -14,6 +14,6 @@ RUN cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 
 ADD composer.phar /usr/bin/composer
 
-USER 1000
+USER 1000:1000
 
 ENTRYPOINT [ "/usr/bin/composer" ]
